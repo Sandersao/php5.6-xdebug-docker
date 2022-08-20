@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  phpexample:
+    image: phpexample
+    container_name: phpexample
+    build:
+      network: host
+      dockerfile: 'DockerFile'
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./src:/var/www/html
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    entrypoint: "php -S 0:8080 -t /var/www/html"

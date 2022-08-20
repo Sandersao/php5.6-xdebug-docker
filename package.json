@@ -1,0 +1,16 @@
+{
+  "name": "php-docker-xdebug",
+  "version": "1.0.0",
+  "description": "Xdebug container example",
+  "scripts": {
+    "build": "docker-compose build --no-cache",
+    "start": "docker-compose up",
+    "get-ip": "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' phpexample",
+    "bash": "docker exec -it phpexample /bin/sh",
+    "clear": "docker container rm phpexample || docker image rm phpexample",
+    "prune": "docker image prune --force",
+    "check": "docker container ls --all && docker image ls --all"
+  },
+  "author": "Sanderson A. Rocha",
+  "license": "MIT"
+}
